@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "rick-morty-characters-api",
+		"name": "Rick and Morty API - Characters",
+		"description": "Colección de endpoints para personajes de la API de Rick and Morty.\n\nDocumentación: https://rickandmortyapi.com/documentation/#character",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://rickandmortyapi.com/api",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Get All Characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"]
+				},
+				"description": "Obtiene todos los personajes con paginación. Por defecto retorna 20 resultados por página."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Characters (Paginated)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character?page=2",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"],
+					"query": [
+						{
+							"key": "page",
+							"value": "2",
+							"description": "Número de página (1-42)"
+						}
+					]
+				},
+				"description": "Obtiene una página específica de personajes."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Character",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["character", "1"]
+				},
+				"description": "Obtiene un personaje específico por su ID. Ejemplo: ID 1 = Rick Sanchez"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Multiple Characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character/1,2,3",
+					"host": ["{{baseUrl}}"],
+					"path": ["character", "1,2,3"]
+				},
+				"description": "Obtiene múltiples personajes por sus IDs separados por coma."
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Characters by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character?name=rick",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"],
+					"query": [
+						{
+							"key": "name",
+							"value": "rick",
+							"description": "Nombre del personaje"
+						}
+					]
+				},
+				"description": "Filtra personajes por nombre."
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Characters by Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character?status=alive",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"],
+					"query": [
+						{
+							"key": "status",
+							"value": "alive",
+							"description": "Estado del personaje: alive, dead, unknown"
+						}
+					]
+				},
+				"description": "Filtra personajes por estado (alive, dead, unknown)."
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Characters by Species",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character?species=human",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"],
+					"query": [
+						{
+							"key": "species",
+							"value": "human",
+							"description": "Especie del personaje"
+						}
+					]
+				},
+				"description": "Filtra personajes por especie."
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Characters by Gender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character?gender=female",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"],
+					"query": [
+						{
+							"key": "gender",
+							"value": "female",
+							"description": "Género del personaje: female, male, genderless, unknown"
+						}
+					]
+				},
+				"description": "Filtra personajes por género (female, male, genderless, unknown)."
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Characters (Multiple Filters)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/character?name=rick&status=alive&gender=male",
+					"host": ["{{baseUrl}}"],
+					"path": ["character"],
+					"query": [
+						{
+							"key": "name",
+							"value": "rick",
+							"description": "Nombre del personaje"
+						},
+						{
+							"key": "status",
+							"value": "alive",
+							"description": "Estado: alive, dead, unknown"
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"description": "Género: female, male, genderless, unknown"
+						}
+					]
+				},
+				"description": "Filtra personajes usando múltiples criterios combinados."
+			},
+			"response": []
+		}
+	]
+}
