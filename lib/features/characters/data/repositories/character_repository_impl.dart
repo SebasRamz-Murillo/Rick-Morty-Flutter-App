@@ -24,6 +24,11 @@ class CharacterRepositoryImpl implements CharacterRepository {
   }
 
   @override
+  Future<Either<Failure, List<CharacterModel>>> getCharactersByIds(List<int> ids) async {
+    return _handleRequest(() => _remoteDataSource.getCharactersByIds(ids));
+  }
+
+  @override
   Future<Either<Failure, CharacterResponseModel>> searchCharacters(
     String name,
     int page,

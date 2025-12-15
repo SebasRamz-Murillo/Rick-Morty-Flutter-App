@@ -1,4 +1,4 @@
-/// Fixtures de datos para tests de personajes.
+/// Fixtures de datos para tests de personajes
 
 const characterJson = {
   'id': 1,

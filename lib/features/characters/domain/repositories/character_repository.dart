@@ -10,6 +10,9 @@ abstract class CharacterRepository {
   /// Obtiene un personaje por [id].
   Future<Either<Failure, CharacterModel>> getCharacterById(int id);
 
+  /// Obtiene múltiples personajes por [ids].
+  Future<Either<Failure, List<CharacterModel>>> getCharactersByIds(List<int> ids);
+
   /// Busca personajes por [name].
   Future<Either<Failure, CharacterResponseModel>> searchCharacters(
     String name,

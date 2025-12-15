@@ -10,6 +10,9 @@ abstract class CharacterRemoteDataSource {
   /// Obtiene un personaje por [id].
   Future<CharacterModel> getCharacterById(int id);
 
+  /// Obtiene múltiples personajes por [ids].
+  Future<List<CharacterModel>> getCharactersByIds(List<int> ids);
+
   /// Busca personajes por [name].
   Future<CharacterResponseModel> searchCharacters(String name, int page);
 }
@@ -33,6 +36,19 @@ class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
   Future<CharacterModel> getCharacterById(int id) async {
     final response = await _client.get('${ApiConstants.characters}/$id');
     return CharacterModel.fromJson(response.data);
+  }
+
+  @override
+  Future<List<CharacterModel>> getCharactersByIds(List<int> ids) async {
+    if (ids.isEmpty) return [];
+    if (ids.length == 1) {
+      final character = await getCharacterById(ids.first);
+      return [character];
+    }
+    final idsParam = ids.join(',');
+    final response = await _client.get('${ApiConstants.characters}/$idsParam');
+    final List<dynamic> data = response.data;
+    return data.map((json) => CharacterModel.fromJson(json)).toList();
   }
 
   @override
