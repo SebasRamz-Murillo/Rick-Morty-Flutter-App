@@ -57,6 +57,7 @@ Se usa Clean Architecture para mantener el código organizado y fácil de testea
 - Buscador por nombre
 - Pantalla de detalle con Hero Animation
 - Guardar favoritos (se persisten localmente)
-- Funciona en modo claro y oscuro
-- Se adapta a tablets
 
+## Notas
+
+-   El apk esta en el directiorio docs/
